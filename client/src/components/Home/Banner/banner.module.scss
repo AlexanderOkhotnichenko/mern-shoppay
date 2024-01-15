@@ -1,0 +1,29 @@
+.banner {
+  @apply relative w-full flex items-center justify-center h-screen-80 min-h-28 max-h-50;
+  &__content {
+    @apply max-w-87.625 mx-auto p-10;
+  }
+}
+
+.media {
+  @apply absolute inset-0 w-screen;
+  &__banner {
+    @apply block w-full h-full bg-center bg-no-repeat object-cover;
+  }
+}
+
+.description {
+  @apply relative z-10 flex flex-col items-center;
+  &__title {
+    @apply text-5xl text-white font-bold mb-4;
+  }
+  &__text {
+    @apply text-2xl text-white mb-8;
+  }
+  &__link {
+    @apply block text-xl text-white font-semibold rounded-md py-2.5 px-8 bg-purple-custom duration-150;
+    &:hover {
+      @apply bg-hover-purple-custom;
+    }
+  }
+}

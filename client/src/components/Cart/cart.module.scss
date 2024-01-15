@@ -1,0 +1,31 @@
+.cart {
+  width: 45vw;
+  @apply relative flex items-center gap-5 border-b pb-3 mb-3;
+  .left {
+    img {
+      @apply block max-w-8.75 rounded;
+    }
+  }
+  .right {
+    .title {
+      @apply tracking-wide text-lg font-semibold text-stone-700 pb-1.5;
+    }
+    .description {
+      @apply mb-1.5;
+      .category,
+      .size,
+      .color {
+        @apply block tracking-wide text-stone-700;
+      }
+    }
+    .price {
+      @apply text-stone-700 tracking-wide font-semibold;
+    }
+  }
+  .delete {
+    @apply absolute top-40% max-w-87.625 right-0 grid-cols-2 -translate-y-1/2 fill-stone-700 w-6 h-6 duration-150 cursor-pointer;
+    &:hover {
+      @apply fill-red-500;
+    }
+  }
+}

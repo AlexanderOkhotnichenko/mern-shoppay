@@ -1,0 +1,38 @@
+.accordion {
+  @apply border-t-2 border-light-neutral-custom px-1 duration-150 cursor-pointer;
+  &:last-child {
+    @apply border-b-2;
+  }
+  &.active {
+    @apply bg-light-neutral-custom;
+    .accordion {
+      &__arrow {
+        @apply rotate-180;
+      }
+      &__back {
+        @apply pb-3 h-12;
+      }
+    }
+  }
+  &__title {
+    @apply relative flex items-center gap-2.5 py-3.5;
+    svg {
+      @apply w-5 h-5 text-stone-700;
+    }
+    span {
+      @apply block font-medium text-stone-700 text-lg;
+    }
+  }
+  &__arrow {
+    @apply absolute right-0 w-0 h-5 fill-stone-700 duration-300;
+  }
+  &__back {
+    @apply flex items-center gap-3 duration-300 px-1 h-0 overflow-hidden;
+    p {
+      @apply w-full gap-2 text-stone-500 text-base;
+    }
+    a {
+      @apply block w-fit text-stone-950 font-medium text-base underline;
+    }
+  }
+}

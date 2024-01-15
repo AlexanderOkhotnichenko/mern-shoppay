@@ -1,0 +1,10 @@
+.filter {
+  @apply fixed border-r border-neutral-300 bg-lock-gray;
+  &.lock::before {
+    @apply content-[""] absolute inset-0 z-10 bg-lock-gray;
+  }
+  &__content {
+    width: 250px;
+    @apply flex flex-col gap-8 py-6 px-4 min-h-screen-80;
+  }
+}

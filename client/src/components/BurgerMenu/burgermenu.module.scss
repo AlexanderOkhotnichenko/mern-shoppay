@@ -1,0 +1,28 @@
+.burder_menu {
+  @apply relative w-8 duration-600 cursor-pointer h-5 hidden;
+  &.open {
+    @apply rotate-360;
+    .burder_menu__line {
+      @apply bg-white;
+      &::before {
+        @apply rotate-45 translate-x-px translate-y-2;
+      }
+      &::after {
+        @apply -rotate-45 translate-x-px -translate-y-2;
+      }
+    }
+  }
+  &__line {
+    @apply block h-1 w-8 absolute rounded-md bg-purple-custom duration-400 delay-100 top-1/2 -translate-y-1/2;
+    &::before,
+    &::after {
+      @apply content-[''] bg-purple-custom rounded-md left-0 absolute h-1 w-8 duration-400 delay-200;
+    }
+    &::before {
+      @apply -top-2;
+    }
+    &::after {
+      @apply top-2;
+    }
+  }
+}

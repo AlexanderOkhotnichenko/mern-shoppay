@@ -1,0 +1,54 @@
+.filter {
+  @apply relative px-6;
+  &.lock::before {
+    @apply content-[""] absolute inset-0 z-10 bg-lock-gray;
+  }
+  &__content {
+    @apply relative py-2.5 h-16;
+  }
+  .search {
+    @apply mb-2.5 border-b-2;
+    input {
+      @apply w-full h-8 font-medium;
+      background: none;
+    }
+  }
+}
+
+.search_overlay {
+  @apply absolute inset-0 bg-lock-gray;
+}
+
+.search_result {
+  max-height: 336px;
+  @apply absolute left-0 w-full overflow-y-auto z-20 bg-white;
+  top: calc(100% - 10px);
+  .card {
+    @apply flex gap-3 p-2 duration-150;
+    &:hover {
+      @apply bg-light-neutral-custom;
+    }
+    &__img {
+      @apply block w-24;
+    }
+    &__row {
+      @apply pt-2.5;
+    }
+    &__title {
+      @apply font-medium text-lg text-stone-700;
+    }
+    &__price {
+      @apply flex items-center gap-2;
+      .price_old,
+      .price_new {
+        @apply block;
+      }
+      .price_old {
+        @apply text-base font-bold text-neutral-400;
+      }
+      .price_new {
+        @apply text-base font-bold text-stone-700;
+      }
+    }
+  }
+}

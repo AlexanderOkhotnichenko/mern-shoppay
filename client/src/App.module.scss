@@ -1,0 +1,11 @@
+.app {
+  @apply min-h-screen-80 w-full overflow-hidden;
+}
+
+.container_stores {
+  @apply min-h-screen-80 flex max-w-87.625;
+}
+
+.container_products {
+  @apply flex flex-col w-full h-full max-w-87.625 pl-15.625;
+}

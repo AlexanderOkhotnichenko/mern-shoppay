@@ -1,0 +1,15 @@
+.footer {
+  @apply relative z-10 bg-purple-custom;
+  &__content {
+    @apply py-10 max-w-87.625 mx-auto;
+  }
+}
+
+.payment {
+  @apply flex items-center justify-center gap-2.5 pt-10 border-t border-light-neutral-custom;
+  &__card {
+    svg {
+      @apply w-11 h-7;
+    }
+  }
+}

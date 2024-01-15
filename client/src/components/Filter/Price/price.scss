@@ -1,0 +1,10 @@
+.range-slider {
+  @apply mx-auto w-12.25;
+  @apply h-1.5;
+  .range-slider__range {
+    @apply bg-purple-custom;
+  }
+  .range-slider__thumb {
+    @apply bg-purple-custom w-3.5 h-3.5;
+  }
+}

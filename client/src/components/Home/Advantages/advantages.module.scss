@@ -1,0 +1,18 @@
+.advantages {
+  @apply relative;
+  &__content {
+    @apply py-10 px-4 max-w-87.625 mx-auto;
+  }
+}
+
+.title {
+  @apply text-stone-700 text-4xl font-semibold text-center mb-4;
+}
+
+.text {
+  @apply text-stone-500 text-xl text-center mb-8;
+}
+
+.advantages_list {
+  @apply mx-auto w-4/5 max-w-40;
+}

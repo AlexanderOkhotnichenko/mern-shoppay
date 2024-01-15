@@ -1,0 +1,16 @@
+.nav_pagination {
+  @apply flex items-center gap-4 pb-6 mx-auto;
+  .prev svg,
+  .next svg {
+    @apply fill-stone-700 w-6 h-6;
+  }
+  .page {
+    @apply flex gap-3;
+    &__number {
+      @apply block leading-7 text-center text-stone-700 font-semibold w-7 h-7 rounded-full duration-150;
+      &.target {
+        @apply bg-purple-custom text-white;
+      }
+    }
+  }
+}

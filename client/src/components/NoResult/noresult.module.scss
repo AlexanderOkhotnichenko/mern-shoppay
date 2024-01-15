@@ -1,0 +1,10 @@
+.no_result {
+  @apply flex justify-center items-center flex-col col-span-full;
+  height: 50vh;
+  &__hero {
+    @apply h-1/2 object-contain block;
+  }
+  &__title {
+    @apply text-2xl font-medium tracking-wide text-stone-700;
+  }
+}

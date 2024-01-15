@@ -1,0 +1,29 @@
+.design_model {
+  @apply relative;
+  &__content {
+    @apply grid grid-cols-2 max-w-87.625 mx-auto py-20 px-4;
+  }
+}
+
+.image {
+  @apply flex;
+  &__img {
+    @apply block object-cover w-full h-auto;
+  }
+}
+
+.description {
+  @apply flex flex-col justify-center bg-light-neutral-custom py-10 px-16;
+  &__title {
+    @apply text-4xl font-semibold text-stone-700 mb-8 tracking-wide;
+  }
+  &__text {
+    @apply text-xl font-medium text-stone-500 mb-12 tracking-wide;
+  }
+  &__link {
+    @apply text-xl py-2.5 px-7 tracking-wide bg-purple-custom rounded-md w-fit text-white duration-150;
+    &:hover {
+      @apply bg-hover-purple-custom;
+    }
+  }
+}

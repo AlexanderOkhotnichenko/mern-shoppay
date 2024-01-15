@@ -1,0 +1,29 @@
+.select {
+  @apply relative w-16 mb-7;
+  &.open {
+    .header .arrow {
+      @apply rotate-180;
+    }
+    .body {
+      @apply opacity-100 pointer-events-auto;
+    }
+  }
+  .header {
+    @apply flex justify-between items-center text-center py-1 px-2.5 text-stone-600 font-medium rounded border border-light-gray-custom bg-white cursor-pointer;
+    .arrow {
+      @apply fill-stone-700 w-3.5;
+    }
+  }
+  .body {
+    @apply absolute top-full+0.35 w-full opacity-0 pointer-events-none z-10;
+    .options {
+      @apply bg-white border border-light-gray-custom rounded;
+      .option {
+        @apply text-center text-stone-700 font-medium py-1 duration-150 cursor-pointer;
+        &:hover {
+          @apply bg-light-neutral-custom;
+        }
+      }
+    }
+  }
+}

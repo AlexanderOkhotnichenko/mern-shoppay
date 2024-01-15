@@ -1,0 +1,27 @@
+.types_payment {
+  &__content {
+    @apply max-w-87.625 mx-auto py-10 px-4;
+  }
+}
+
+.title {
+  @apply text-4xl font-semibold text-stone-700 text-center mb-6;
+}
+
+.list_types {
+  @apply grid grid-cols-3 gap-6;
+  &__col {
+    @apply flex items-center justify-center bg-light-neutral-custom py-8 px-10;
+    img {
+      @apply h-fit block object-contain;
+      min-height: 60px;
+      max-height: 120px;
+    }
+  }
+  &__row {
+    @apply flex justify-center gap-6 w-full col-span-full;
+    > * {
+      @apply w-1/3;
+    }
+  }
+}

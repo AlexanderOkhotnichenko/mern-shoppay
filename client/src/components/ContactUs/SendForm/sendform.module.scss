@@ -1,0 +1,64 @@
+.send_form {
+  @apply relative min-h-screen-80;
+  &__content {
+    @apply flex items-center justify-center py-10 px-5 h-full;
+  }
+}
+
+.form {
+  @apply bg-white rounded-md py-12 px-10 w-full max-w-30 shadow-auth;
+  &__row {
+    @apply block;
+    &:not(:last-child) {
+      @apply mb-5;
+    }
+  }
+  .label {
+    @apply relative flex items-center gap-5 border-white-custom bg-white-custom py-18 px-4 rounded-md;
+    &.error {
+      @apply border border-error;
+    }
+    .icon {
+      @apply text-light-gray-custom min-w-6 min-h-6;
+    }
+    .input {
+      @apply w-full text-light-gray-custom outline-none bg-white-custom text-lg;
+    }
+    .select {
+      option {
+      }
+    }
+    .message {
+      @apply w-full resize-none text-light-gray-custom text-lg;
+      background: none;
+    }
+  }
+  .error_message {
+    @apply block text-error w-full font-medium;
+    background-color: red;
+    font-size: 100px;
+  }
+}
+
+.submit {
+  @apply mx-auto max-w-xs mt-8 w-full flex justify-center font-semibold text-white rounded py-2 px-10 text-lg duration-150 cursor-pointer bg-purple-custom;
+  &:hover {
+    @apply bg-hover-purple-custom;
+  }
+  &:disabled {
+    @apply opacity-70 cursor-auto;
+    &:hover {
+      @apply bg-purple-custom;
+    }
+  }
+  .loading {
+    @apply w-7 h-7;
+  }
+  .correct {
+    @apply w-full p-4 mb-10 text-15 bg-emerald-500 text-white rounded-md text-center;
+  }
+}
+
+button[type="submit"] {
+  @apply bg-purple-custom;
+}

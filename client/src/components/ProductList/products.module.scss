@@ -1,0 +1,10 @@
+.product_list {
+  @apply flex-1 relative mx-auto w-full min-h-screen;
+  &.overlay::before {
+    @apply content-[''] absolute inset-0 bg-lock-gray z-10;
+  }
+  &__content {
+    @apply grid grid-cols-4 gap-10 p-6 pt-3 w-full;
+  }
+}
+

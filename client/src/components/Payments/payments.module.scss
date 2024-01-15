@@ -1,0 +1,6 @@
+.payments {
+  @apply relative pt-10;
+  &__content {
+    @apply flex gap-10;
+  }
+}

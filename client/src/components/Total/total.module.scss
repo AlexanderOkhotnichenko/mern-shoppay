@@ -1,0 +1,18 @@
+.total {
+  @apply relative max-w-20 mt-10;
+  .row {
+    @apply flex items-center justify-between gap-10 mb-5;
+    .title {
+      @apply font-semibold text-xl tracking-wide text-stone-700;
+    }
+    .price {
+      @apply font-semibold text-xl tracking-wide text-stone-700;
+    }
+  }
+  .checkout {
+    @apply block bg-purple-custom py-2.5 px-5 text-white uppercase rounded text-center font-bold tracking-wide duration-150;
+    &:hover {
+      @apply bg-hover-purple-custom;
+    }
+  }
+}

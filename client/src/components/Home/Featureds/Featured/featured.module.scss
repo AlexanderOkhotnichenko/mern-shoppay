@@ -1,0 +1,40 @@
+.card {
+  .img_wrapper {
+    @apply relative mb-5 rounded overflow-hidden;
+    &:hover {
+      .front {
+        @apply opacity-0;
+      }
+      .back {
+        @apply opacity-100 scale-105;
+      }
+    }
+    .front,
+    .back {
+      @apply block w-full max-w-20 object-cover duration-300;
+    }
+    .back {
+      @apply absolute opacity-0 inset-0 z-10;
+    }
+  }
+  .description {
+    .title {
+      @apply text-lg text-stone-700 font-semibold pb-1;
+    }
+    .price {
+      @apply flex items-center gap-3 mb-6;
+      .old {
+        @apply text-neutral-400 text-base font-bold;
+      }
+      .new {
+        @apply text-stone-700 text-lg font-bold;
+      }
+    }
+    .link {
+      @apply block duration-150 bg-purple-custom rounded text-sm text-center text-white font-semibold py-2.5 px-4 uppercase;
+      &:hover {
+        @apply bg-hover-purple-custom;
+      }
+    }
+  }
+}

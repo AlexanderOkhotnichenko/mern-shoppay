@@ -1,0 +1,22 @@
+.our_values {
+  @apply relative;
+  &__content {
+    @apply py-10 px-3 max-w-6xl mx-auto;
+  }
+}
+
+.title {
+  @apply text-4xl font-semibold text-stone-700 pb-9 text-center;
+}
+
+.row {
+  @apply grid grid-cols-3 gap-4;
+  .item {
+    &__title {
+      @apply text-stone-700 text-xl font-semibold pb-4;
+    }
+    &__text {
+      @apply text-stone-500 text-lg;
+    }
+  }
+}

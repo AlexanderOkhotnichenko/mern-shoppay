@@ -1,0 +1,21 @@
+.banner {
+  @apply relative h-screen-80 flex items-center justify-center max-h-50;
+  &::before {
+    @apply content-[''] absolute inset-0 z-20 bg-zinc-custome;
+  }
+  &__content {
+    @apply relative z-20 p-2.5 max-w-40;
+  }
+}
+
+.nature_img {
+  @apply block absolute inset-0 w-full h-full object-cover z-10;
+}
+
+.title {
+  @apply text-2xl text-center uppercase text-white pb-4 tracking-wide;
+}
+
+.text {
+  @apply text-4xl text-white font-medium tracking-wide text-center;
+}
