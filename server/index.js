@@ -9,6 +9,7 @@ const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const Featureds = require('./models/Featured');
 const Products = require('./models/Products');
+const EmailSender = require('./SendMail');
 
 connection();
 
@@ -19,6 +20,7 @@ app.use(cors());
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 
+// GET LIST FEATUREDS
 app.get('/api/featureds', (req, res) => {
   Featureds.find().then((data, error) => {
     if (data) {
@@ -29,6 +31,7 @@ app.get('/api/featureds', (req, res) => {
   });
 });
 
+// GET LIST PRODUCTS
 app.get('/api/products', (req, res) => {
   Products.find().then((data, error) => {
     if (data) {
@@ -39,6 +42,18 @@ app.get('/api/products', (req, res) => {
   });
 });
 
+// POST EMAIL SENDER
+app.post('/api/send', async (req, res) => {
+  try {
+    const { firstName, lastName, email, phone, message } = req.body;
+    EmailSender({ firstName, lastName, email, phone, message });
+    res.json({ message: "Your message sent successfully" });
+  } catch (error) {
+    res.status(404).json({ message: "Error Send POST ❌" });
+  }
+});
+
+// GET LIST COOKIE
 app.get('/api/cookie', function (req, res) {
   // res.clearCookie('user');
   // res.send('Cookie deleted');

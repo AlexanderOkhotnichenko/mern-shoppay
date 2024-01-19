@@ -6,7 +6,16 @@
 }
 
 .form {
-  @apply bg-white rounded-md py-12 px-10 w-full max-w-30 shadow-auth;
+  @apply bg-white rounded-md py-12 px-10 w-full max-w-xl shadow-auth;
+  &__title {
+    @apply relative text-purple-custom mx-auto text-32 font-bold leading-46 text-center mb-11;
+    &::before {
+      @apply content-[''] w-20 h-1 rounded-xl bg-purple-custom block absolute -bottom-1 left-1/2 -translate-x-1/2;
+    }
+  }
+  &__line {
+    @apply flex gap-5;
+  }
   &__row {
     @apply block;
     &:not(:last-child) {
@@ -23,9 +32,23 @@
     }
     .input {
       @apply w-full text-light-gray-custom outline-none bg-white-custom text-lg;
+      &.phone {
+        @apply bg-white rounded;
+      }
     }
-    .select {
-      option {
+    .dropdown_button {
+      @apply bg-white;
+    }
+    .dropdown li span {
+      @apply text-stone-700;
+      &:last-child {
+        @apply text-stone-500;
+      }
+    }
+    .search {
+      @apply w-full bg-white-custom px-1.5;
+      input {
+        @apply w-full text-light-gray-custom m-0;
       }
     }
     .message {
@@ -35,8 +58,6 @@
   }
   .error_message {
     @apply block text-error w-full font-medium;
-    background-color: red;
-    font-size: 100px;
   }
 }
 

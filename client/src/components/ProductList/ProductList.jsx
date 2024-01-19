@@ -5,7 +5,7 @@ import { NoResult } from "../NoResult";
 import styles from "./products.module.scss";
 
 export function ProductList({ goods }) {
-  const { searchValue, currentPage } = useContext(Context);
+  const { searchValue } = useContext(Context);
 
   return (
     <section className={`${styles.product_list} ${searchValue ? styles.overlay : ''}`}>

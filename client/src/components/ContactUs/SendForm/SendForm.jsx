@@ -1,49 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import PhoneInput from "react-phone-input-2";
 import Swal from "sweetalert2";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { MdMail } from "react-icons/md";
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import { MdOutlinePhoneIphone } from "react-icons/md";
+import { SendEmail } from "../../../API/API";
+import "react-phone-input-2/lib/style.css";
 import styles from "./sendform.module.scss";
 
 const nameValidation = /^([^0-9]*)$/;
-const emailRegular =
-  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const phoneValidation = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
 export function SendForm() {
+  const [disabledButton, setDisabledButton] = useState(false);
+  const [send, setSend] = useState(false);
+  const [dataSend, setDataSend] = useState("");
+
   const schema = yup.object().shape({
     firstName: yup
       .string()
-      .min(4, "The name's too short")
-      .max(32, "The name's too long")
-      .matches(nameValidation, "First Name should not contain numbers")
-      .required("First Name is a required field"),
+      .min(4, "The name's too short.")
+      .max(32, "The name's too long.")
+      .matches(nameValidation, "First Name should not contain numbers.")
+      .required("First Name is a required field."),
     lastName: yup
       .string()
-      .min(4, "The name's too short")
-      .max(32, "The name's too long")
-      .matches(nameValidation, "Last Name should not contain numbers")
-      .required("Last Name is a required field"),
+      .min(4, "The name's too short.")
+      .max(32, "The name's too long.")
+      .matches(nameValidation, "Last Name should not contain numbers.")
+      .required("Last Name is a required field."),
     email: yup
       .string()
-      .email("Email should have correct format")
-      .required("Email is a required field"),
+      .email("Email should have correct format.")
+      .required("Email is a required field."),
     phone: yup
       .string()
-      .matches(phoneValidation, "Phone number is not valid")
-      .required("Phone number is a required field"),
+      .min(11, "Incorrect phone number. Minimum length 10 digits.")
+      .max(15, "Incorrect phone number. Maximum length 15 digits.")
+      .required("Phone number is a required field."),
     message: yup
       .string()
-      .matches(phoneValidation, "Try to keep the text short and informative")
-      .required("The field should contain brief information"),
+      .min(50, "The text must contain a minimum of 50 letters.")
+      .max(500, "Try to keep the text short and informative.")
+      .required("The field should contain brief information."),
   });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    control,
     reset,
   } = useForm({
     resolver: yupResolver(schema),
@@ -56,54 +64,70 @@ export function SendForm() {
     },
   });
 
-  const [disabledButton, setDisabledButton] = useState(false);
-
   const onSubmit = (data) => {
-    reset();
-    alert(JSON.stringify("datas2:", data));
+    SendEmail(data);
+    // reset();
   };
 
   return (
     <section className={styles.send_form}>
       <div className={styles.send_form__content}>
         <form
-          // action=""
           className={styles.form}
           onSubmit={handleSubmit(onSubmit)}
           noValidate
         >
-          <div className={styles.form__row}>
-            <label className={`${styles.label} ${errors?.firstName ? styles.error : ''}`}>
-              <FaUser className={styles.icon} />
-              <input
-                type="text"
-                name={"firstname"}
-                placeholder={"First Name"}
-                className={styles.input}
-                {...register("firstName")}
-              />
-            </label>
-            {errors?.firstName && (
-              <span className={styles.error}>{errors?.firstName?.message}</span>
-            )}
+          <h1 className={styles.form__title}>Contact Us</h1>
+          <div className={styles.form__line}>
+            <div className={styles.form__row}>
+              <label
+                className={`${styles.label} ${
+                  errors?.firstName?.message ? styles.error : ""
+                }`}
+              >
+                <FaUser className={styles.icon} />
+                <input
+                  type="text"
+                  name={"firstname"}
+                  placeholder={"First Name"}
+                  className={styles.input}
+                  {...register("firstName")}
+                />
+              </label>
+              {errors?.firstName && (
+                <span className={styles.error_message}>
+                  {errors?.firstName?.message}
+                </span>
+              )}
+            </div>
+            <div className={styles.form__row}>
+              <label
+                className={`${styles.label} ${
+                  errors?.lastName?.message ? styles.error : ""
+                }`}
+              >
+                <FaUser className={styles.icon} />
+                <input
+                  type="text"
+                  name={"lastName"}
+                  placeholder={"Last Name"}
+                  className={styles.input}
+                  {...register("lastName")}
+                />
+              </label>
+              {errors?.lastName && (
+                <span className={styles.error_message}>
+                  {errors?.lastName?.message}
+                </span>
+              )}
+            </div>
           </div>
           <div className={styles.form__row}>
-            <label className={styles.label}>
-              <FaUser className={styles.icon} />
-              <input
-                type="text"
-                name={"lastname"}
-                placeholder={"Last Name"}
-                className={styles.input}
-                {...register("lastname")}
-              />
-            </label>
-            {errors?.lastName && (
-              <span className={styles.error}>{errors?.lastName?.message}</span>
-            )}
-          </div>
-          <div className={styles.form__row}>
-            <label className={styles.label}>
+            <label
+              className={`${styles.label} ${
+                errors?.email?.message ? styles.error : ""
+              }`}
+            >
               <MdMail className={styles.icon} />
               <input
                 type="email"
@@ -114,35 +138,50 @@ export function SendForm() {
               />
             </label>
             {errors?.email && (
-              <span className={styles.error}>{errors?.email?.message}</span>
+              <span className={styles.error_message}>
+                {errors?.email?.message}
+              </span>
             )}
           </div>
           <div className={styles.form__row}>
-            <label className={styles.label}>
-              <select
-                name="country-phone-number"
-                id="country-phone-number"
-                className={styles.select}
-              >
-                <option value="">SELECT 1</option>
-                <option value="">SELECT 2</option>
-                <option value="">SELECT 3</option>
-              </select>
-              <input
-                type="tel"
-                name={"phone"}
-                placeholder={"000-000-0000"}
-                className={styles.input}
-                {...register("phone")}
+            <label
+              className={`${styles.label} ${
+                errors?.phone?.message ? styles.error : ""
+              }`}
+            >
+              <MdOutlinePhoneIphone className={styles.icon} />
+              <Controller
+                name="phone"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <PhoneInput
+                    value={value}
+                    onChange={onChange}
+                    country="us"
+                    enableSearch={true}
+                    disableSearchIcon={true}
+                    dropdownClass={styles.dropdown}
+                    buttonClass={styles.dropdown_button}
+                    inputClass={`${styles.input} ${styles.phone}`}
+                    searchClass={styles.search}
+                  />
+                )}
               />
             </label>
             {errors?.phone && (
-              <span className={styles.error}>{errors?.phone?.message}</span>
+              <span className={styles.error_message}>
+                {errors?.phone?.message}
+              </span>
             )}
           </div>
           <div className={styles.form__row}>
-            <label className={styles.label}>
+            <label
+              className={`${styles.label} ${
+                errors?.message?.message ? styles.error : ""
+              }`}
+            >
               <textarea
+                rows={4}
                 name={"message"}
                 placeholder={"Message"}
                 className={styles.message}
@@ -150,7 +189,9 @@ export function SendForm() {
               />
             </label>
             {errors?.message && (
-              <span className={styles.error}>{errors?.message?.message}</span>
+              <span className={styles.error_message}>
+                {errors?.message?.message}
+              </span>
             )}
           </div>
           <button
