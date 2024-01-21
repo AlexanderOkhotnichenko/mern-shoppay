@@ -1,17 +1,19 @@
-import axios from "axios";
+import axios from "../axios";
 
-// ***** GET SEND EMAIL ***** //
-export const SendEmail = async ( firstName, lastName, email, phone, message, setSend ) => {
+// ***** POST SEND EMAIL ***** //
+export const SendEmail = async ({ firstName, lastName, email, phone, message }, { setSend, setLoading }) => {
+  setLoading(true);
   try {
     const data = { firstName, lastName, email, phone, message }
-    let response = await axios.get(`/api/send`, data);
-
+    let response = await axios.post(`http://localhost:8080/api/send`, data);
+    
     if (response) {
-      console.log('response:', response.data);
-    //   setSend(response.data);
+      setSend(response.data);
+      setLoading(false);
+      
     }
   } catch (error) {
+    setLoading(false);
     console.log('ERROR SEND:', error);
-    alert(error.response.data.message);
   }
 };

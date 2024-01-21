@@ -122,7 +122,6 @@ export function SignUp() {
             disabled={disabledButton}
             type="submit"
             className={styles.submit__submit}
-            onClick={() => console.log('click:', true)}
           >
             {disabledButton ? <TailSpin className={styles.submit_loading} /> : "Sign Up"}
           </button>

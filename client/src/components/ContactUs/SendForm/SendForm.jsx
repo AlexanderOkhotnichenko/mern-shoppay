@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import Swal from "sweetalert2";
+import { TailSpin } from "react-loading-icons";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -14,9 +15,9 @@ import styles from "./sendform.module.scss";
 const nameValidation = /^([^0-9]*)$/;
 
 export function SendForm() {
+  const [loading, setLoading] = useState(false);
   const [disabledButton, setDisabledButton] = useState(false);
-  const [send, setSend] = useState(false);
-  const [dataSend, setDataSend] = useState("");
+  const [send, setSend] = useState("");
 
   const schema = yup.object().shape({
     firstName: yup
@@ -65,9 +66,19 @@ export function SendForm() {
   });
 
   const onSubmit = (data) => {
-    SendEmail(data);
-    // reset();
+    SendEmail(data, { setSend, setLoading });
+    reset();
   };
+
+  useEffect(() => {
+    if (send) {
+      Swal.fire({
+        title: `${send.message}!`,
+        icon: 'success',
+        confirmButtonText: 'Ok',
+      });
+    }
+  }, [send]);
 
   return (
     <section className={styles.send_form}>
@@ -199,7 +210,7 @@ export function SendForm() {
             disabled={disabledButton}
             className={styles.submit}
           >
-            Submit
+            {disabledButton ? <TailSpin className={styles.loading} /> : "Submit"}
           </button>
         </form>
       </div>

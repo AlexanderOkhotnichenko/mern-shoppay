@@ -79,7 +79,7 @@ const EmailSender = ({ firstName, lastName, email, phone, message }) => {
             <td
               style="color: #78716c; margin: 0 0 0 0.5rem; font-size: 1.125rem; line-height: 1.75rem; word-break: break-word; padding: 0 1rem 0 0;"
             >
-              ${phone}
+              +${phone}
             </td>
           </tr>
           <tr style="max-width: 100%;">
