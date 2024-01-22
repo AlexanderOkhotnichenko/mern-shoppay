@@ -27,8 +27,6 @@ export default {
         error: 'rgb(243, 68, 68)',
         'purple-custom': 'rgb(89, 47, 244)',
         'hover-purple-custom': 'rgb(80, 43, 212)',
-        'blue-custom': 'rgb(0, 61, 194)',
-        'hover-blue-custom': 'rgb(17, 63, 162)',
         'white-custom': 'rgb(242, 243, 243)',
         'light-gray-custom': 'rgb(175, 172, 174)',
         'light-neutral-custom': 'rgb(236, 236, 236)',
@@ -44,8 +42,6 @@ export default {
         error: 'rgb(243, 68, 68)',
         'purple-custom': 'rgb(89, 47, 244)',
         'hover-purple-custom': 'rgb(80, 43, 212)',
-        'blue-custom': 'rgb(0, 61, 194)',
-        'hover-blue-custom': 'rgb(17, 63, 162)',
         'white-custom': 'rgb(242, 243, 243)',
         'light-gray-custom': 'rgb(175, 172, 174)',
         'light-neutral-custom': 'rgb(236, 236, 236)',
@@ -55,7 +51,6 @@ export default {
       },
       fill: {
         'purple-custom': 'rgb(89, 47, 244)',
-        'blue-custom': 'rgb(0, 61, 194)',
       },
       inset: {
         'full+0.35': 'calc(100% + 0.35rem)',
@@ -121,6 +116,9 @@ export default {
       fontSize: {
         15: '0.938rem',
         32: '2rem',
+      },
+      borderColor: {
+        'blue-opacity': 'rgba(89, 47, 244, 0.3)',
       },
       fontFamily: {},
       keyframes: {

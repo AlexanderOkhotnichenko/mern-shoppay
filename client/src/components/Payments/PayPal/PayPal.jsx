@@ -5,7 +5,6 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 export function PayPal({ total }) {
   const styles = {
     color: "black",
-    // layout: "horizontal",
     height: 40,
     tagline: false,
     shape: "pill",

@@ -7,8 +7,14 @@ export function Payments({ total }) {
   return (
     <section className={styles.payments}>
       <div className={styles.payments__content}>
-        <PayPal total={total} />
-        <GooglePay total={total} />
+        {total > 0 ? (
+          <>
+            <PayPal total={total} />
+            <GooglePay total={total} />
+          </>
+        ) : (
+          ""
+        )}
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowDown } from "react-icons/io";
 import styles from "./accordion.module.scss";
 
-export function Accordion({ icon, title, link = [], text, isActive, onClick }) { 
+export function Accordion({ icon, title, link, text, isActive, onClick }) { 
  
   return (
     <div className={`${styles.accordion} ${isActive}`} onClick={onClick}>
@@ -15,7 +15,7 @@ export function Accordion({ icon, title, link = [], text, isActive, onClick }) {
       <div className={styles.accordion__back}>
         <p>
           {text}
-          <Link to={link.href}>{link.text}</Link>
+          <Link to={link?.href}>{link?.text}</Link>
         </p>
       </div>
     </div>

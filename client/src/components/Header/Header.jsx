@@ -19,7 +19,10 @@ export function Header() {
   const handleLogout = () => {
     cookies.remove("token");
     cookies.remove("user");
-    window.location.reload();
+    // setCookie("user", user, { path: "/" });
+    if (!cookies.get("token") && !cookies.get("auth")) {
+      window.location.reload('/');
+    }
   };
 
   const user = cookies.get("token");

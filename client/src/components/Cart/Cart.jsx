@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { MdDelete } from "react-icons/md";
-import styles from "./cart.module.scss";
 import { removeItem } from '../../redux/cartReducer';
+import styles from "./cart.module.scss";
 
 export function Cart({ _id, img, title, category, size, color, price, selectedCount }) {
   const dispatch = useDispatch();

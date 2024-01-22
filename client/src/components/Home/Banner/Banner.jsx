@@ -13,7 +13,7 @@ export function Banner() {
         <div className={styles.description}>
             <h1 className={styles.description__title}>Our Holiday Sale Is Here</h1>
             <p className={styles.description__text}>And there's something for everyone on your list.</p>
-            <Link to={"/stores"} className={styles.description__link}>Shop the Sale</Link>
+            <Link to={"/shop"} className={styles.description__link}>Shop the Sale</Link>
         </div>
       </div>
     </section>

@@ -8,7 +8,7 @@ export const data = [
     title: "Find your favourite model",
     text: "Explore our range of products goods to find your perfect match",
     link: {
-      href: "/stores",
+      href: "/shop",
       text: "Check out",
     },
     icon: <AiOutlineThunderbolt />,

@@ -3,50 +3,19 @@ import PhoneInput from "react-phone-input-2";
 import Swal from "sweetalert2";
 import { TailSpin } from "react-loading-icons";
 import { useForm, Controller } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { MdMail } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { MdOutlinePhoneIphone } from "react-icons/md";
+import { schema } from "../../../utils/schema";
 import { SendEmail } from "../../../API/API";
 import "react-phone-input-2/lib/style.css";
 import styles from "./sendform.module.scss";
-
-const nameValidation = /^([^0-9]*)$/;
+import "../../../sweetalert2.scss";
 
 export function SendForm() {
   const [loading, setLoading] = useState(false);
-  const [disabledButton, setDisabledButton] = useState(false);
   const [send, setSend] = useState("");
-
-  const schema = yup.object().shape({
-    firstName: yup
-      .string()
-      .min(4, "The name's too short.")
-      .max(32, "The name's too long.")
-      .matches(nameValidation, "First Name should not contain numbers.")
-      .required("First Name is a required field."),
-    lastName: yup
-      .string()
-      .min(4, "The name's too short.")
-      .max(32, "The name's too long.")
-      .matches(nameValidation, "Last Name should not contain numbers.")
-      .required("Last Name is a required field."),
-    email: yup
-      .string()
-      .email("Email should have correct format.")
-      .required("Email is a required field."),
-    phone: yup
-      .string()
-      .min(11, "Incorrect phone number. Minimum length 10 digits.")
-      .max(15, "Incorrect phone number. Maximum length 15 digits.")
-      .required("Phone number is a required field."),
-    message: yup
-      .string()
-      .min(50, "The text must contain a minimum of 50 letters.")
-      .max(500, "Try to keep the text short and informative.")
-      .required("The field should contain brief information."),
-  });
 
   const {
     register,
@@ -65,6 +34,21 @@ export function SendForm() {
     },
   });
 
+  const SwalOptions = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    customClass: {
+      container: 'swal2-container-custom',
+    },
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+
   const onSubmit = (data) => {
     SendEmail(data, { setSend, setLoading });
     reset();
@@ -72,10 +56,9 @@ export function SendForm() {
 
   useEffect(() => {
     if (send) {
-      Swal.fire({
-        title: `${send.message}!`,
-        icon: 'success',
-        confirmButtonText: 'Ok',
+      SwalOptions.fire({
+        title: `${send?.message}!`,
+        icon: "success",
       });
     }
   }, [send]);
@@ -205,12 +188,8 @@ export function SendForm() {
               </span>
             )}
           </div>
-          <button
-            type="submit"
-            disabled={disabledButton}
-            className={styles.submit}
-          >
-            {disabledButton ? <TailSpin className={styles.loading} /> : "Submit"}
+          <button type="submit" disabled={loading} className={styles.submit}>
+            {loading ? <TailSpin className={styles.loading} /> : "Submit"}
           </button>
         </form>
       </div>

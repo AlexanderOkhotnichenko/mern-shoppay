@@ -8,13 +8,17 @@
 .form {
   @apply bg-white rounded-md py-12 px-10 w-full max-w-xl shadow-auth;
   &__title {
-    @apply relative text-purple-custom mx-auto text-32 font-bold leading-46 text-center mb-11;
+    @apply relative text-purple-custom mx-auto font-bold leading-46 text-center mb-11;
+    font-size: max(1.5rem, min(5vw, 2rem));
     &::before {
       @apply content-[''] w-20 h-1 rounded-xl bg-purple-custom block absolute -bottom-1 left-1/2 -translate-x-1/2;
     }
   }
   &__line {
-    @apply flex gap-5;
+    @apply flex gap-5 mb-5;
+    .form__row:first-child {
+      @apply mb-0;
+    }
   }
   &__row {
     @apply block;
@@ -31,7 +35,8 @@
       @apply text-light-gray-custom min-w-6 min-h-6;
     }
     .input {
-      @apply w-full text-light-gray-custom outline-none bg-white-custom text-lg;
+      @apply block w-full text-light-gray-custom outline-none bg-white-custom ;
+      font-size: max(0.5rem, min(5vw, 1.125rem));
       &.phone {
         @apply bg-white rounded;
       }
@@ -83,3 +88,4 @@
 button[type="submit"] {
   @apply bg-purple-custom;
 }
+

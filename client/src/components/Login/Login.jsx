@@ -27,7 +27,9 @@ export function Login() {
       cookies.set('token', res.data);
       cookies.set('user', data.email);
       setDisabledButton(false);
-      window.location.reload();
+      if (cookies.getAll()) {
+        window.location.reload('/');
+      }
     } catch (error) {
       console.log(error);
       if (

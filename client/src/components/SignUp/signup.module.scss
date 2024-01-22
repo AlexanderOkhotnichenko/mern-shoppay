@@ -8,7 +8,7 @@
   &__title {
     @apply relative text-purple-custom mx-auto text-32 font-bold leading-46 text-center mb-11;
     &::before {
-      @apply content-[''] w-20 h-1 rounded-xl bg-purple-custom block absolute -bottom-1 left-1/2 -translate-x-1/2;
+      @apply content-[''] w-20 h-1 rounded bg-purple-custom block absolute -bottom-1 left-1/2 -translate-x-1/2;
     }
   }
 }
@@ -48,7 +48,7 @@
     }
   }
   &__link {
-    @apply w-full font-semibold text-center block rounded-lg text-opacity-70 text-purple-custom py-2 px-10 text-lg bg-white-custom #{!important};
+    @apply w-full font-semibold text-center block rounded text-opacity-70 text-purple-custom py-2 px-10 text-lg bg-white-custom #{!important};
   }
 }
 
@@ -57,9 +57,9 @@
 }
 
 .error_message {
-  @apply w-full p-4 mb-10 text-15 bg-error text-white rounded-md text-center;
+  @apply w-full p-4 mb-10 text-15 bg-error text-white rounded text-center;
 }
 
 .create_message {
-  @apply w-full p-4 mb-10 text-15 bg-emerald-500 text-white rounded-md text-center;
+  @apply w-full p-4 mb-10 text-15 bg-emerald-500 text-white rounded text-center;
 }
