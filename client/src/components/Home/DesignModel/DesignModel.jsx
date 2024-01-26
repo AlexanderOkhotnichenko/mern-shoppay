@@ -7,8 +7,8 @@ export function DesignModel() {
   return (
     <section className={styles.design_model}>
       <div className={styles.design_model__content}>
-        <div className={styles.image}>
-          <img src={nature} alt="Nature" className={styles.image__img} />
+        <div className={styles.background}>
+          <img src={nature} alt="Nature" className={styles.img} />
         </div>
         <div className={styles.description}>
           <h1 className={styles.description__title}>Thoughtfully Designed From Natural and Recycled Materials</h1>

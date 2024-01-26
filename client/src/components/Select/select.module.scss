@@ -10,6 +10,8 @@
   }
   .header {
     @apply flex justify-between items-center text-center py-1 px-2.5 text-stone-600 font-medium rounded border border-light-gray-custom bg-white cursor-pointer;
+    font-size: max(0.938rem, min(4vw, 1rem));
+    line-height: max(1.25rem, min(4vw, 1.5rem));
     .arrow {
       @apply fill-stone-700 w-3.5;
     }
@@ -25,5 +27,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .select {
+    @apply mb-3.5;
   }
 }

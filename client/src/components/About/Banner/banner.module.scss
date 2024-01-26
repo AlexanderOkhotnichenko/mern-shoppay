@@ -6,16 +6,23 @@
   &__content {
     @apply relative z-20 p-2.5 max-w-40;
   }
+  .nature_img {
+    @apply block absolute inset-0 w-full h-full object-cover z-10;
+  }
+  .title {
+    @apply leading-8 text-center uppercase text-white pb-4 tracking-wide;
+    font-size: max(1.5rem, min(5vw, 2rem));
+    line-height: max(1.5rem, min(5vw, 2rem));
+  }
+  .text {
+    @apply text-white font-medium tracking-wide text-center;
+    font-size: max(1.625rem, min(5vw, 2.25rem));
+    line-height: max(2.25rem, min(5vw, 2.5rem));
+  }
 }
 
-.nature_img {
-  @apply block absolute inset-0 w-full h-full object-cover z-10;
-}
 
-.title {
-  @apply text-2xl text-center uppercase text-white pb-4 tracking-wide;
-}
 
-.text {
-  @apply text-4xl text-white font-medium tracking-wide text-center;
+@media screen and (max-width: 0px) {
+
 }

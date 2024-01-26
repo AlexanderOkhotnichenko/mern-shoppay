@@ -7,10 +7,18 @@
     @apply relative py-2.5 h-16;
   }
   .search {
-    @apply mb-2.5 border-b-2;
+    @apply relative mb-2.5 border-b-2;
     input {
-      @apply w-full h-8 font-medium;
-      background: none;
+      @apply w-full h-8 font-medium bg-body;
+      &::-webkit-search-cancel-button {
+        @apply w-4 h-4 rounded-full pointer-events-none;
+        -webkit-appearance: none;
+        background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
+        background-size: contain;
+      }
+      &:focus::-webkit-search-cancel-button {
+        @apply opacity-30 pointer-events-auto;
+      }
     }
   }
 }
@@ -50,5 +58,11 @@
         @apply text-base font-bold text-stone-700;
       }
     }
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .filter {
+    @apply px-3;
   }
 }

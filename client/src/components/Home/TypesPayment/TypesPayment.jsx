@@ -11,23 +11,21 @@ export function TypesPayment() {
     <section className={styles.types_payment}>
       <div className={styles.types_payment__content}>
         <h1 className={styles.title}>Pay by any convenient way for you!</h1>
-        <div className={styles.list_types}>
-          <div className={styles.list_types__col}>
+        <div className={styles.types}>
+          <div className={styles.col}>
             <img src={paypal} alt="PayPal" />
           </div>
-          <div className={styles.list_types__col}>
+          <div className={styles.col}>
             <img src={mastercard} alt="MasterCard" />
           </div>
-          <div className={styles.list_types__col}>
+          <div className={styles.col}>
             <img src={visa} alt="Visa" />
           </div>
-          <div className={styles.list_types__row}>
-            <div className={styles.list_types__col}>
+          <div className={styles.col}>
               <img src={googlepay} alt="Google Pay" />
-            </div>
-            <div className={styles.list_types__col}>
+          </div>
+          <div className={styles.col}>
               <img src={applepay} alt="Apple Pay" />
-            </div>
           </div>
         </div>
       </div>

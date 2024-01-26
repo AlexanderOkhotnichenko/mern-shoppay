@@ -2,10 +2,36 @@
   @apply min-h-screen-80 w-full overflow-hidden;
 }
 
+/* STORES PAGE */
 .container_stores {
   @apply min-h-screen-80 flex max-w-87.625;
 }
 
 .container_products {
-  @apply flex flex-col w-full h-full max-w-87.625 pl-15.625;
+  @apply relative left-0 flex flex-col w-full h-full max-w-87.625 pl-60;
+}
+
+@media screen and (max-width: 786px) {
+  .container_products {
+    @apply pl-0 duration-400;
+    &.is_open {
+      @apply left-60;
+    }
+  }
+}
+
+/* ABOUT PAGE */
+.about_page_image {
+  @apply block my-0 mx-auto w-full h-72 object-cover;
+}
+
+@media screen and (max-width: 771px) {
+  .about_page_image {
+    @apply h-52;
+  }
+}
+@media screen and (max-width: 471px) {
+  .about_page_image {
+    @apply h-32;
+  }
 }

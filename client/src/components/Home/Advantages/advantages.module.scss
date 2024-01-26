@@ -3,16 +3,32 @@
   &__content {
     @apply py-10 px-4 max-w-87.625 mx-auto;
   }
+  .title {
+    @apply text-stone-700 font-semibold text-center mb-4;
+    font-size: max(1.625rem, min(4vw, 2.25rem));
+    line-height: max(2rem, min(4vw, 2.5rem));
+  }
+  .text {
+    @apply text-stone-500 text-center mb-8;
+    font-size: max(1.063rem, min(4vw, 1.25rem));
+    line-height: max(1.5rem, min(4vw, 1.75rem));
+  }
+  .advantages_list {
+    @apply mx-auto w-4/5 max-w-40;
+  }
 }
 
-.title {
-  @apply text-stone-700 text-4xl font-semibold text-center mb-4;
-}
-
-.text {
-  @apply text-stone-500 text-xl text-center mb-8;
-}
-
-.advantages_list {
-  @apply mx-auto w-4/5 max-w-40;
+@media screen and (max-width: 771px) {}
+@media screen and (max-width: 471px) {
+  .advantages {
+    &__content {
+      @apply py-8 px-3;
+    }
+    .title {
+      @apply mb-3;
+    }
+    .text {
+      @apply mb-5;
+    }
+  }
 }

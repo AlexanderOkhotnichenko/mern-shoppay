@@ -20,7 +20,7 @@ export function Advantages() {
       <div className={styles.advantages__content}>
         <h1 className={styles.title}>Try them out in practice.</h1>
         <p className={styles.text}>Just contact our team for support!</p>
-        <div className={styles.advantages_list}>
+        <div className={styles.list}>
           {
             data.map((accordion, index) => (
               <Accordion

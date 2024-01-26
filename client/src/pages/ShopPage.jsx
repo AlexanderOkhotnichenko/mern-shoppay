@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../context";
 import { useFetch } from "../hooks/useFetch";
 import { Filter } from "../components/Filter";
@@ -12,6 +12,8 @@ import styles from "../App.module.scss";
 
 export function ShopPage() {
   const { currentPage } = useContext(Context);
+  const [isOpen, setIsOpen] = useState(false);
+
   const { data, listGoods, loading } = useFetch('/api/products');
 
   // PAGINATION PAGE
@@ -26,9 +28,9 @@ export function ShopPage() {
 
   return (
     <div className={styles.container_stores}>
-      <Filter loading={loading} fetchProducts={data} />
-      <div className={styles.container_products}>
-        <Categorys fetchProducts={result} loading={loading} />
+      <Filter loading={loading} fetchProducts={data} isOpen={isOpen}/>
+      <div className={`${styles.container_products} ${isOpen ? styles.is_open : ''}`}>
+        <Categorys fetchProducts={result} loading={loading} onClickTableButton={() => setIsOpen(!isOpen)} />
         <Search feachProducts={listGoods} loading={loading} />
         {loading ? <Loading /> : <ProductList goods={result} />}
         <NavPagination paginationCount={numbers} pageCount={pageCount} />

@@ -11,15 +11,23 @@ export function Search({ feachProducts, loading }) {
 
   const applySearch = () => {
     let updataSearch = feachProducts;
+    const scrollWidth = window.innerWidth - document.querySelector("main").offsetWidth + "px";
 
     if (searchValue) {
       updataSearch = updataSearch.filter((product) => product.title.toLowerCase().search(searchValue.toLowerCase().trim()) !== -1);
-      document.body.style.overflow = "hidden";
+
+      document.body.classList.add("is_lock");
+      document.body.style.paddingRight = scrollWidth;
+      document.querySelector('header').style.paddingRight = scrollWidth;
+
       setSearchResult(updataSearch);
     }
     
     if (!searchValue.length) {
-      document.body.style.overflow = 'auto';
+      document.body.classList.remove("is_lock");
+      document.body.style.paddingRight = 0;
+      document.querySelector('header').style.paddingRight = 0;
+
       setSearchResult([]);
     }
   };

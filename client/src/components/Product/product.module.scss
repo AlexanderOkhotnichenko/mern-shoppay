@@ -4,10 +4,10 @@
   }
   .left {
     @apply grid grid-cols-4 gap-5;
-    .gallery_hero {
+    .gallery {
       @apply col-1/2;
       img {
-        @apply w-full h-36 object-cover cursor-pointer mb-2.5;
+        @apply block w-36 h-36 object-cover cursor-pointer mb-2.5;
       }
     }
     .main_hero {
@@ -20,24 +20,34 @@
   .right {
     .title {
       @apply text-xl font-semibold text-stone-700 pb-2.5;
+      font-size: max(1rem, min(4vw, 1.25rem));
+      line-height: max(1.5rem, min(4vw, 1.75rem));
     }
     .price {
       @apply flex items-center gap-3 pb-5;
       &__old {
         @apply text-neutral-400 font-bold;
+        font-size: max(0.938rem, min(4vw, 1rem));
+        line-height: max(1.25rem, min(4vw, 1.5rem));
       }
       &__new {
         @apply text-stone-700 font-bold;
+        font-size: max(0.938rem, min(4vw, 1rem));
+        line-height: max(1.25rem, min(4vw, 1.5rem));
       }
     }
     .description {
       @apply text-stone-700 tracking-wide pb-7;
+      font-size: max(0.938rem, min(4vw, 1rem));
+      line-height: max(1.25rem, min(4vw, 1.5rem));
     }
     .error_message {
       @apply block w-full bg-error py-2.5 px-3 mb-6 text-white font-medium text-center rounded tracking-wide;
     }
     .quantity {
       @apply flex items-center gap-2.5 mb-7;
+      font-size: max(0.938rem, min(4vw, 1rem));
+      line-height: max(1.25rem, min(4vw, 1.5rem));
       .minus,
       .plus {
         @apply p-3 rounded-sm bg-neutral-200 duration-150;
@@ -76,6 +86,77 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .product {
+    &__content {
+      @apply gap-8 px-5;
+    }
+    .left {
+      @apply grid-cols-4;
+    }
+  }
+}
+
+@media screen and (max-width: 881px) {
+  .product {
+    &__content {
+      @apply grid-cols-1;
+    }
+    .left {
+      @apply flex;
+      .gallery {
+        @apply grid grid-cols-1 gap-2.5 ;
+        img {
+          @apply h-full;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .product {
+    &__content {
+      @apply px-3;
+    }
+    .left {
+      @apply gap-3;
+      .gallery {
+        img {
+          @apply mb-0;
+        }
+      }
+    }
+    .right {
+      .description {
+        @apply pb-3.5;
+      }
+      .table .tbody .tr .td {
+        @apply px-2;
+        overflow-x: scroll;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 371px) {
+  .product {
+    .left {
+      @apply flex-col;
+      .gallery {
+        @apply flex order-2;
+        img {
+          @apply w-full h-36;
+        }
+      }
+      .main_hero img {
+        /* @apply max-h-72; */
+        
       }
     }
   }

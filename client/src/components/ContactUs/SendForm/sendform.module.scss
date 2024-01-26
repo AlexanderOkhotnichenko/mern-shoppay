@@ -8,8 +8,9 @@
 .form {
   @apply bg-white rounded-md py-12 px-10 w-full max-w-xl shadow-auth;
   &__title {
-    @apply relative text-purple-custom mx-auto font-bold leading-46 text-center mb-11;
+    @apply relative text-purple-custom mx-auto font-bold text-center mb-11;
     font-size: max(1.5rem, min(5vw, 2rem));
+    line-height: max(2.25rem, min(5vw, 2.875rem));
     &::before {
       @apply content-[''] w-20 h-1 rounded-xl bg-purple-custom block absolute -bottom-1 left-1/2 -translate-x-1/2;
     }
@@ -35,8 +36,9 @@
       @apply text-light-gray-custom min-w-6 min-h-6;
     }
     .input {
-      @apply block w-full text-light-gray-custom outline-none bg-white-custom ;
-      font-size: max(0.5rem, min(5vw, 1.125rem));
+      @apply block w-full text-light-gray-custom outline-none bg-white-custom;
+      font-size: max(1rem, min(3.5vw, 1.125rem));
+      line-height: max(1.5rem, min(3.5vw, 1.75rem));
       &.phone {
         @apply bg-white rounded;
       }
@@ -57,7 +59,9 @@
       }
     }
     .message {
-      @apply w-full resize-none text-light-gray-custom text-lg;
+      @apply w-full resize-none text-light-gray-custom;
+      font-size: max(1rem, min(5vw, 1.125rem));
+      line-height: max(1.5rem, min(5vw, 1.75rem));
       background: none;
     }
   }
@@ -67,21 +71,20 @@
 }
 
 .submit {
-  @apply mx-auto max-w-xs mt-8 w-full flex justify-center font-semibold text-white rounded py-2 px-10 text-lg duration-150 cursor-pointer bg-purple-custom;
+  @apply mx-auto max-w-xs mt-10 w-full flex justify-center font-semibold text-white rounded py-2 px-10 duration-150 cursor-pointer bg-purple-custom;
+  font-size: max(1rem, min(4vw, 1.125rem));
+  line-height: max(1.5rem, min(4vw, 1.75rem));
   &:hover {
     @apply bg-hover-purple-custom;
   }
   &:disabled {
     @apply opacity-70 cursor-auto;
     &:hover {
-      @apply bg-purple-custom;
+      @apply bg-purple-custom #{!important};
     }
   }
   .loading {
     @apply w-7 h-7;
-  }
-  .correct {
-    @apply w-full p-4 mb-10 text-15 bg-emerald-500 text-white rounded-md text-center;
   }
 }
 
@@ -89,3 +92,29 @@ button[type="submit"] {
   @apply bg-purple-custom;
 }
 
+@media screen and (max-width: 561px) {
+  .form__line {
+    @apply flex-col;
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .send_form__content {
+    @apply px-3;
+  }
+  .form {
+    @apply p-5;
+    &__title {
+      @apply mb-7;
+    }
+    .label {
+      @apply py-4 px-3 gap-3;
+      .icon {
+        @apply min-w-1.25 min-h-1.25;
+      }
+    }
+    .error_message {
+      @apply text-sm;
+    }
+  }
+}

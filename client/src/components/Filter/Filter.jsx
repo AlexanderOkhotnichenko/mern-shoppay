@@ -2,10 +2,10 @@ import React, { useContext, useEffect } from "react";
 import { Sizes } from "./Sizes";
 import { Colors } from "./Colors";
 import { Price } from "./Price";
-import styles from "./filter.module.scss";
 import { Context } from "../../context";
+import styles from "./filter.module.scss";
 
-export function Filter({ loading, fetchProducts }) {
+export function Filter({ loading, fetchProducts, isOpen }) {
   const {
     selectedSize,
     setSelectedSize,
@@ -16,7 +16,7 @@ export function Filter({ loading, fetchProducts }) {
     selectedCategory,
     searchValue,
     setListGoods,
-    setCurrentPage
+    setCurrentPage,
   } = useContext(Context);
 
   const handleSelectedSize = (id) => {
@@ -72,7 +72,9 @@ export function Filter({ loading, fetchProducts }) {
   }, [selectedSize, selectedColor, selectedPrice, selectedCategory]);
 
   return (
-    <aside className={`${styles.filter} ${loading || searchValue ? styles.lock : ""}`}>
+    <aside
+      className={`${styles.filter} ${loading || searchValue ? styles.lock : ""} ${isOpen ? styles.is_open : ''}`}
+    >
       <div className={styles.filter__content}>
         <Sizes handleSize={handleSelectedSize} />
         <Colors handleColor={handleSelectedColor} />

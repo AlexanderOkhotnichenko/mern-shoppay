@@ -3,27 +3,36 @@
   &__content {
     @apply max-w-87.625 mx-auto p-10;
   }
-}
-
-.media {
-  @apply absolute inset-0 w-screen;
-  &__banner {
-    @apply block w-full h-full bg-center bg-no-repeat object-cover;
-  }
-}
-
-.description {
-  @apply relative z-10 flex flex-col items-center;
-  &__title {
-    @apply text-5xl text-white font-bold mb-4;
-  }
-  &__text {
-    @apply text-2xl text-white mb-8;
-  }
-  &__link {
-    @apply block text-xl text-white font-semibold rounded-md py-2.5 px-8 bg-purple-custom duration-150;
-    &:hover {
-      @apply bg-hover-purple-custom;
+  .media {
+    @apply absolute inset-0 w-screen;
+    &__banner {
+      @apply block w-full h-full bg-center bg-no-repeat object-cover;
     }
+  }
+  .description {
+    @apply relative z-10 flex flex-col items-center;
+    &__title {
+      @apply leading-none text-white font-bold mb-4;
+      font-size: max(1.563rem, min(5vw, 3rem));
+    }
+    &__text {
+      @apply text-white mb-8;
+      font-size: max(1.125rem, min(4vw, 1.5rem));
+      line-height: max(1.625rem, min(4vw, 2rem));
+    }
+    &__link {
+      @apply block text-white font-semibold rounded-md py-2.5 px-8 bg-purple-custom duration-150;
+      font-size: max(1.063rem, min(4vw, 1.25rem));
+      line-height: max(1.625rem, min(4vw, 1.75rem));
+      &:hover {
+        @apply bg-hover-purple-custom;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .banner__content {
+    @apply p-3;
   }
 }

@@ -3,15 +3,32 @@
   &__content {
     @apply relative py-10 px-3 mx-auto max-w-3xl;
   }
+  .title {
+    @apply text-stone-700 font-semibold pb-8 text-center;
+    font-size: max(1.625rem, min(3.5vw, 2.25rem));
+    line-height: max(2rem, min(3.5vw, 2.5rem));
+  }
+  
+  .text {
+    @apply text-stone-500 text-center;
+    font-size: max(0.875rem, min(3.5vw, 1.125rem));
+    line-height: max(1.5rem, min(3.5vw, 1.75rem));
+    &:not(:last-child) {
+      @apply pb-4;
+    }
+  }
 }
 
-.title {
-  @apply text-stone-700 font-semibold text-4xl pb-8 text-center;
-}
 
-.text {
-  @apply text-stone-500 text-lg text-center;
-  &:not(:last-child) {
-    @apply pb-4;
+@media screen and (max-width: 471px) {
+  .extended_information {
+    .title {
+      @apply pb-4;
+    }
+    .text {
+      &:not(:last-child) {
+        @apply pb-5;
+      }
+    }
   }
 }

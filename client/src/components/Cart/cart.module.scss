@@ -1,5 +1,4 @@
 .cart {
-  width: 45vw;
   @apply relative flex items-center gap-5 border-b pb-3 mb-3;
   .left {
     img {
@@ -8,7 +7,7 @@
   }
   .right {
     .title {
-      @apply tracking-wide text-lg font-semibold text-stone-700 pb-1.5;
+      @apply tracking-wide text-lg font-semibold text-stone-700 pb-1.5 w-72 whitespace-nowrap overflow-hidden text-ellipsis;
     }
     .description {
       @apply mb-1.5;

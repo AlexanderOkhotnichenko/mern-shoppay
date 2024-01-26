@@ -75,16 +75,20 @@ export default {
       },
       minWidth: {
         20: '20rem',
+        9: '9rem',
         6: '1.5rem',
+        1.25: '1.25rem',
       },
       maxHeight: {
         50: '50rem',
         45: '45rem',
       },
       minHeight: {
-        6: '1.5rem',
-        28: '28rem',
         'screen-80': 'calc(100vh - 5rem)',
+        28: '28rem',
+        9: '9rem',
+        6: '1.5rem',
+        1.25: '1.25rem',
       },
       gridColumn: {
         '2/3': '2 / 3',

@@ -6,6 +6,7 @@ import { Recommendations } from "../components/About/Recommendations";
 import { resetPagePosition } from "../resetPagePosition";
 import ethos_values_1 from "../assets/img/ethos_values_1.webp";
 import ethos_values_2 from "../assets/img/ethos_values_2.webp";
+import styles from "../App.module.scss";
 
 const options_1 = {
   title: "Who We Are",
@@ -30,9 +31,9 @@ export function AboutPage() {
     <>
       <Banner />
       <OurValues />
-      <img src={ethos_values_1} alt="Ethos Values 1" style={{ margin: "0 auto", height: "290px", width: "100%", objectFit: "cover" }} />
+      <img src={ethos_values_1} alt="Ethos Values 1" className={styles.about_page_image} />
       <ExtendedInformation options={options_1} />
-      <img src={ethos_values_2} alt="Ethos Values 2" style={{ margin: "0 auto", height: "290px", width: "100%", objectFit: "cover" }} />
+      <img src={ethos_values_2} alt="Ethos Values 2" className={styles.about_page_image} />
       <ExtendedInformation options={options_2} />
       <Recommendations />
     </>

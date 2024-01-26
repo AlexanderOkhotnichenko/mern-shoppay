@@ -60,76 +60,78 @@ export function SignUp() {
   };
 
   return (
-    <div className={styles.signup__container}>
-      <form className={styles.signup__form} onSubmit={handleSubmit}>
-        <h1 className={styles.signup__title}>Create Account</h1>
-        <div className={styles.label__wrapper}>
-          <div className={styles.label__content}>
-            <label className={styles.label__label}>
-              <FaUser className={styles.label__icon} />
-              <input
-                type="text"
-                name={"firstName"}
-                value={data.firstName}
-                onChange={handleData}
-                required
-                placeholder={"First Name"}
-                className={styles.label__input}
-              />
-            </label>
-            <label className={styles.label__label}>
-              <FaUser className={styles.label__icon} />
-              <input
-                type="text"
-                name={"lastName"}
-                value={data.lastName}
-                onChange={handleData}
-                required
-                placeholder={"Last Name"}
-                className={styles.label__input}
-              />
-            </label>
-            <label className={styles.label__label}>
-              <MdMail className={styles.label__icon} />
-              <input
-                type="email"
-                name={"email"}
-                value={data.email}
-                onChange={handleData}
-                required
-                placeholder={"Email"}
-                className={styles.label__input}
-              />
-            </label>
-            <label className={styles.label__label}>
-              <FaLock className={styles.label__icon} />
-              <input
-                type="password"
-                name={"password"}
-                value={data.password}
-                onChange={handleData}
-                required
-                placeholder={"Password"}
-                className={styles.label__input}
-              />
-            </label>
+    <section className={styles.signup}>
+      <div className={styles.signup__content}>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <h1 className={styles.title}>Create Account</h1>
+          <div className={styles.label}>
+            <div className={styles.label__content}>
+              <label className={styles.label__label}>
+                <FaUser className={styles.label__icon} />
+                <input
+                  type="text"
+                  name={"firstName"}
+                  value={data.firstName}
+                  onChange={handleData}
+                  required
+                  placeholder={"First Name"}
+                  className={styles.label__input}
+                />
+              </label>
+              <label className={styles.label__label}>
+                <FaUser className={styles.label__icon} />
+                <input
+                  type="text"
+                  name={"lastName"}
+                  value={data.lastName}
+                  onChange={handleData}
+                  required
+                  placeholder={"Last Name"}
+                  className={styles.label__input}
+                />
+              </label>
+              <label className={styles.label__label}>
+                <MdMail className={styles.label__icon} />
+                <input
+                  type="email"
+                  name={"email"}
+                  value={data.email}
+                  onChange={handleData}
+                  required
+                  placeholder={"Email"}
+                  className={styles.label__input}
+                />
+              </label>
+              <label className={styles.label__label}>
+                <FaLock className={styles.label__icon} />
+                <input
+                  type="password"
+                  name={"password"}
+                  value={data.password}
+                  onChange={handleData}
+                  required
+                  placeholder={"Password"}
+                  className={styles.label__input}
+                />
+              </label>
+            </div>
+            {error && <div className={styles.error_message}>{error}</div>}
+            {create && <div className={styles.create_message}>{create}</div>}
           </div>
-          {error && <div className={styles.error_message}>{error}</div>}
-          {create && <div className={styles.create_message}>{create}</div>}
-        </div>
-        <div className={styles.submit__wrapper}>
-          <button
-            disabled={disabledButton}
-            type="submit"
-            className={styles.submit__submit}
-          >
-            {disabledButton ? <TailSpin className={styles.submit_loading} /> : "Sign Up"}
-          </button>
-          <Link to={"/login"} className={styles.submit__link}>
-            Login
-          </Link>
-        </div>
-      </form>
-    </div>
+          <div className={styles.submit_buttons}>
+            <button
+              disabled={disabledButton}
+              type="submit"
+              className={styles.submit}
+            >
+              {disabledButton ? <TailSpin className={styles.submit_loading} /> : "Sign Up"}
+            </button>
+            <Link to={"/login"} className={styles.link}>
+              Login
+            </Link>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 }

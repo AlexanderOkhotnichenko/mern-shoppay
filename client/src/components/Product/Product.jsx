@@ -37,7 +37,7 @@ export function Product({ products }) {
     <section className={styles.product} id={data?._id}>
       <div className={styles.product__content}>
         <div className={styles.left}>
-          <div className={styles.gallery_hero}>
+          <div className={styles.gallery}>
             <img
               src={data?.img?.src?.front}
               alt={data?.img?.alt?.front}
@@ -121,36 +121,38 @@ export function Product({ products }) {
             </button>
           )}
           <hr className={styles.line} />
-          <table className={styles.table}>
-            <tbody className={styles.tbody}>
-              <tr className={styles.tr}>
-                <td className={styles.td}>Category:</td>
-                <td className={styles.td}>{data?.category}</td>
-              </tr>
-              <tr className={styles.tr}>
-                <td className={styles.td}>Sizes:</td>
-                {listSize.map((item, index) => (
-                  <td key={index} className={styles.td}>
-                    {item}
+          <div style={{ overflowX: "auto" }}>
+            <table className={styles.table}>
+              <tbody className={styles.tbody}>
+                <tr className={styles.tr}>
+                  <td className={styles.td}>Category:</td>
+                  <td data-label="Category:" className={styles.td}>{data?.category}</td>
+                </tr>
+                <tr className={styles.tr}>
+                  <td className={styles.td}>Sizes:</td>
+                  {listSize.map((item, index) => (
+                    <td key={index} className={styles.td}>
+                      {item}
+                    </td>
+                  ))}
+                </tr>
+                <tr className={styles.tr}>
+                  <td className={styles.td}>Color:</td>
+                  <td className={styles.td}>
+                    <span
+                      className={styles.circle}
+                      style={{ background: data?.color }}
+                    ></span>
                   </td>
-                ))}
-              </tr>
-              <tr className={styles.tr}>
-                <td className={styles.td}>Color:</td>
-                <td className={styles.td}>
-                  <span
-                    className={styles.circle}
-                    style={{ background: data?.color }}
-                  ></span>
-                </td>
-                <td className={styles.td}>{data?.color}</td>
-              </tr>
-              <tr className={styles.tr}>
-                <td className={styles.td}>Price:</td>
-                <td className={styles.td}>${data?.price?.new}</td>
-              </tr>
-            </tbody>
-          </table>
+                  <td className={styles.td}>{data?.color}</td>
+                </tr>
+                <tr className={styles.tr}>
+                  <td className={styles.td}>Price:</td>
+                  <td className={styles.td}>${data?.price?.new}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>

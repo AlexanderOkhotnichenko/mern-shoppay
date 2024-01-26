@@ -6,10 +6,10 @@ export function Recommendations() {
   return (
     <section className={styles.recommendations}>
       <div className={styles.recommendations__content}>
-        <h2 className={styles.title}>
+        <p className={styles.text}>
           If you have any suggestions or suggestions to improve the quality of
           the goods, feel free to write to us.
-        </h2>
+        </p>
         <Link to={"/contact"} className={styles.link}>Contact us</Link>
       </div>
     </section>

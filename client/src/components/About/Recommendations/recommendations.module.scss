@@ -3,15 +3,22 @@
   &__content {
     @apply pt-6 pb-10 px-3 max-w-xl mx-auto border-t;
   }
+  .text {
+    @apply text-stone-500 text-center pb-6;
+    font-size: max(0.875rem, min(3.5vw, 1.125rem));
+    line-height: max(1.5rem, min(3.5vw, 1.75rem));
+  }
+  
+  .link {
+    @apply block mx-auto w-fit bg-purple-custom py-2 px-5 rounded text-white font-semibold duration-150;
+    &:hover {
+      @apply bg-hover-purple-custom;
+    }
+  }
 }
 
-.title {
-  @apply text-lg text-stone-500 text-center pb-6;
-}
-
-.link {
-  @apply block mx-auto w-fit bg-purple-custom py-2 px-5 rounded text-white font-semibold duration-150;
-  &:hover {
-    @apply bg-hover-purple-custom;
+@media screen and (max-width: 471px) {
+  .extended_information .title {
+    @apply pb-4;
   }
 }

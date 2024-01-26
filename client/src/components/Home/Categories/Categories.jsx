@@ -10,9 +10,9 @@ export function Categories() {
         <div className={styles.grid_layout}>
           {
             data.map((category, index) => (
-              <div className={styles.grid_layout__col} key={index}>
+              <div className={styles.col} key={index}>
                 <img src={category.img.src} alt={category.img.alt} />
-                <Link to={category.link} className={styles.grid_layout__col__link}>{category.title}</Link>
+                <Link to={category.link} className={styles.link}>{category.title}</Link>
               </div>
             ))
           }

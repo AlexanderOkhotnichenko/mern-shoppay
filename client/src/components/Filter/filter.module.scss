@@ -1,10 +1,21 @@
 .filter {
-  @apply fixed border-r border-neutral-300 bg-lock-gray;
+  @apply fixed bg-lock-gray z-10;
+  &.is_open {
+    @apply left-0;
+  }
   &.lock::before {
     @apply content-[""] absolute inset-0 z-10 bg-lock-gray;
   }
   &__content {
-    width: 250px;
-    @apply flex flex-col gap-8 py-6 px-4 min-h-screen-80;
+    @apply flex flex-col gap-8 py-6 px-4 min-h-screen-80 w-60 border-r border-neutral-300;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .filter {
+    @apply -left-60 duration-400;
+    &__content {
+      @apply border-none;
+    }
   }
 }

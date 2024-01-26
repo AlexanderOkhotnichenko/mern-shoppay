@@ -2,41 +2,49 @@
   &__content {
     @apply relative max-w-87.625 mx-auto pt-16 py-10 px-4;
   }
-}
-
-.title {
-  @apply text-2xl text-stone-700 font-semibold text-center mb-2;
-}
-
-.text {
-  @apply text-2xl text-stone-700 text-center mb-10;
-}
-
-.list {
-  @apply grid;
-}
-
-.slider {
-  @apply w-full mx-auto mb-5;
-  .slide {
-    @apply relative;
+  .title {
+    @apply text-stone-700 font-semibold text-center mb-2;
+    font-size: max(1.25rem, min(4vw, 1.5rem));
+    line-height: max(1.75rem, min(4vw, 2rem));
+  }
+  .text {
+    @apply text-stone-700 text-center mb-10;
+    font-size: max(1.25rem, min(4vw, 1.5rem));
+    line-height: max(1.75rem, min(4vw, 2rem));
+  }
+  .list {
+    @apply grid grid-cols-1;
+  }
+  .slider {
+    @apply w-full mx-auto mb-5;
+    .slide {
+      @apply relative;
+    }
+  }
+  .controller {
+    @apply flex items-center gap-5 w-fit mx-auto;
+    .navigation_prev,
+    .navigation_next {
+      &.disabled .arrow {
+        @apply text-stone-400;
+      }
+      .arrow {
+        @apply text-stone-700 text-lg duration-150;
+      }
+    }
+    .pagination {
+      @apply text-stone-700 text-sm;
+    }
   }
 }
 
-.controller {
-  @apply flex items-center gap-5 w-fit mx-auto;
-  .navigation_prev,
-  .navigation_next {
-    &.disabled .arrow {
-      @apply text-stone-400;
+@media screen and (max-width: 471px) {
+  .featureds {
+    &__content {
+      @apply py-8 px-3;
     }
-    .arrow {
-      @apply text-stone-700 text-lg duration-150;
+    .text {
+      @apply mb-6;
     }
-  }
-  .pagination {
-    @apply text-stone-700 text-sm;
-    .current {}
-    .total {}
   }
 }

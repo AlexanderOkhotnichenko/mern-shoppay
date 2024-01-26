@@ -1,21 +1,41 @@
 .filter {
-  @apply relative bg-body w-full px-6;
+  @apply relative bg-body mx-6 border-b-2 pt-6 pb-3.5;
   &.lock::before {
     @apply content-[""] absolute inset-0 bg-lock-gray;
   }
-  &__list {
-    @apply flex gap-3 pt-6 pb-3.5 border-b-2 h-16;
+  .slider_button {
+    @apply hidden w-7 h-7 min-w-6 min-h-6 text-purple-custom;
+  }
+  .list {
+    @apply flex gap-3;
+    .category {
+      input {
+        @apply hidden;
+        &:checked + label {
+          @apply text-white bg-purple-custom border-purple-custom;
+        }
+      }
+      label {
+        @apply font-medium text-stone-700 tracking-wide duration-150 cursor-pointer py-0.5 px-3 border border-stone-700 rounded;
+      }
+    }
   }
 }
 
-.category {
-  input {
-    @apply hidden;
-    &:checked + label {
-      @apply text-white bg-purple-custom border-purple-custom;
+@media screen and (max-width: 786px) {
+  .filter {
+    @apply flex items-center justify-between gap-4;
+    .list {
+      @apply flex-wrap;
+    }
+    .slider_button {
+      @apply block;
     }
   }
-  label {
-    @apply font-medium text-stone-700 tracking-wide duration-150 cursor-pointer py-0.5 px-3 border border-stone-700 rounded;
+}
+
+@media screen and (max-width: 471px) {
+  .filter {
+    @apply py-4 mx-3;
   }
 }

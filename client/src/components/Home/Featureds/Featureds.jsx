@@ -11,23 +11,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const sliderSettings = {
-  440: {
-    slidesPerView: 1,
-    spaceBetween: 30,
-  },
-  680: {
-    slidesPerView: 2,
-    spaceBetween: 30,
-  },
-  1024: {
-    slidesPerView: 3,
-    spaceBetween: 30,
-  },
-};
-
 export function Featureds() {
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(false);
   const [swiper, setSwiper] = useState(null);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -41,13 +27,12 @@ export function Featureds() {
         const responsive = await axios.get('/api/products');
         setProducts(responsive.data);
       } catch (error) {
+        setError(true);
         console.log(error);
       }
     };
 
     fetchData();
-
-    const title = products.map((item) => item.title);
   }, []);
 
   useEffect(() => {
@@ -66,7 +51,7 @@ export function Featureds() {
         <p className={styles.text}>Get Them Before They're Gone!</p>
         <div className={styles.list}>
           <Swiper
-            slidesPerView={4}
+            slidesPerView={1}
             modules={[Pagination, Navigation]}
             className={styles.slider}
             spaceBetween={30}
@@ -74,6 +59,20 @@ export function Featureds() {
               prevEl: prevRef?.current,
               nextEl: nextRef?.current,
               disabledClass: styles.disabled
+            }}
+            breakpoints={{
+              420: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+              },
+              590: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+              780: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
             }}
             pagination={{
               el: paginationRef.current,
@@ -93,7 +92,7 @@ export function Featureds() {
             }}
             onSwiper={setSwiper}
           >
-            {loading
+            {loading || error
               ? [...Array(4)].map((_, index) => (
                   <SwiperSlide key={index} className={styles.slide}>
                     <SkeletonFeatured />

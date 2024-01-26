@@ -44,27 +44,29 @@ export function Login() {
   };
 
   return (
-    <div className={styles.login__container}>
-      <form className={styles.login__form} onSubmit={handleSubmit}>
-        <h1 className={styles.login__title}>Login</h1>
-        <div className={styles.label__wrapper}>
-          <div className={styles.label__content}>
-            <label className={styles.label__label}>
-              <MdMail className={styles.label__icon} />
-              <input type="email" name={"email"} value={data.email} onChange={handleChange} required placeholder={"Email"} className={styles.label__input} />
-            </label>
-            <label className={styles.label__label}>
-              <FaLock className={styles.label__icon} />
-              <input type="password" name={"password"} value={data.password} onChange={handleChange} required placeholder={"Password"} className={styles.label__input} />
-            </label>
+    <section className={styles.login}>
+      <div className={styles.login__content}>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <h1 className={styles.title}>Login</h1>
+          <div className={styles.label}>
+            <div className={styles.label__content}>
+              <label className={styles.label__label}>
+                <MdMail className={styles.label__icon} />
+                <input type="email" name={"email"} value={data.email} onChange={handleChange} required placeholder={"Email"} className={styles.label__input} />
+              </label>
+              <label className={styles.label__label}>
+                <FaLock className={styles.label__icon} />
+                <input type="password" name={"password"} value={data.password} onChange={handleChange} required placeholder={"Password"} className={styles.label__input} />
+              </label>
+            </div>
+            {error && <div className={styles.error_message}>{error}</div>}
           </div>
-          {error && <div className={styles.error_message}>{error}</div>}
-        </div>
-        <div className={styles.submit__wrapper}>
-          <Link to={"/signup"} className={styles.submit__link}>Sign Up</Link>
-          <button type="submit" disabled={disabledButton} className={styles.submit__submit}>{disabledButton ? <TailSpin className={styles.submit_loading} /> : "Login"}</button>
-        </div>
-      </form>
-    </div>
+          <div className={styles.submit_buttons}>
+            <Link to={"/signup"} className={styles.link}>Sign Up</Link>
+            <button type="submit" disabled={disabledButton} className={styles.submit}>{disabledButton ? <TailSpin className={styles.submit_loading} /> : "Login"}</button>
+          </div>
+        </form>
+      </div>
+    </section>
   )
 }

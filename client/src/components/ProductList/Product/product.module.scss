@@ -8,34 +8,40 @@
       @apply opacity-100 scale-105;
     }
   }
-  &__row {
+  .row {
     &:first-child {
       @apply relative mb-5 max-w-20 rounded-lg overflow-hidden;
     }
     &:nth-child(2) {
       @apply mb-6;
     }
-  }
-  &__image {
-    @apply block rounded-lg w-full duration-400;
-    &:last-child {
-      @apply absolute inset-0 opacity-0;
+    .image {
+      @apply block rounded-lg w-full duration-400;
+      &:last-child {
+        @apply absolute inset-0 opacity-0;
+      }
+    }
+    .title {
+      @apply font-semibold text-stone-700 max-w-20 whitespace-nowrap overflow-hidden text-ellipsis;
+      font-size: max(1rem, min(3.5vw, 1.125rem));
+      line-height: max(1.5rem, min(3.5vw, 1.75rem));
+    }
+    .sale {
+      @apply flex items-center gap-3;
+      .sale_old_price {
+        @apply font-bold text-neutral-400;
+        font-size: max(0.875rem, min(3.5vw, 1rem));
+        line-height: max(1.25rem, min(3.5vw, 1.5rem));
+      }
+      .sale_new_price {
+        @apply text-stone-700 font-bold;
+        font-size: max(1rem, min(3.5vw, 1.125rem));
+        line-height: max(1.5rem, min(3.5vw, 1.75rem));
+      }
     }
   }
-  &__title {
-    @apply text-lg font-semibold text-stone-700 max-w-20 whitespace-nowrap overflow-hidden text-ellipsis;
-  }
-  &__sale {
-    @apply flex items-center gap-3;
-    &__old_price {
-      @apply font-bold text-base text-neutral-400;
-    }
-    &__new_price {
-      @apply text-stone-700 text-lg font-bold;
-    }
-  }
-  &__link {
-    @apply block py-2.5 px-5 bg-purple-custom uppercase text-sm text-white rounded text-center font-bold tracking-wide duration-150;
+  .link {
+    @apply block p-2.5 bg-purple-custom uppercase text-sm text-white rounded text-center font-bold tracking-wide duration-150;
     &:hover {
       @apply bg-hover-purple-custom;
     }

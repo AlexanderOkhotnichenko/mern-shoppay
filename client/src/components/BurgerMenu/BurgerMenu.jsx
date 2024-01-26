@@ -1,15 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./burgermenu.module.scss";
 
-export function BurgerMenu() {
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
+export function BurgerMenu({ isOpen, onClick }) {
   return (
-    <div className={`${styles.burder_menu} ${open ? styles.open : ""}`} onClick={handleClick}>
+    <div className={`${styles.burder_menu} ${isOpen ? styles.active : ""}`} onClick={onClick}>
       <span className={styles.burder_menu__line}></span>
     </div>
   );

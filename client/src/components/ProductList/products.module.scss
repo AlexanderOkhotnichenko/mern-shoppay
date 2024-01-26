@@ -8,3 +8,26 @@
   }
 }
 
+@media screen and (max-width: 1025px) {
+  .product_list__content {
+    @apply gap-6;
+  }
+}
+
+@media screen and (max-width: 971px) {
+  .product_list__content {
+    @apply grid-cols-3;
+  }
+}
+
+@media screen and (max-width: 491px) {
+  .product_list__content {
+    @apply grid-cols-2;
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .product_list__content {
+    @apply px-3 pt-2;
+  }
+}

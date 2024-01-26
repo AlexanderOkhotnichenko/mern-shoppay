@@ -5,34 +5,43 @@
   }
   &.active {
     @apply bg-light-neutral-custom;
-    .accordion {
-      &__arrow {
-        @apply rotate-180;
-      }
-      &__back {
-        @apply pb-3 h-12;
-      }
+    .arrow {
+      @apply rotate-180;
+    }
+    .back {
+      @apply pb-3 h-12;
     }
   }
-  &__title {
+  .title {
     @apply relative flex items-center gap-2.5 py-3.5;
     svg {
       @apply w-5 h-5 text-stone-700;
     }
     span {
-      @apply block font-medium text-stone-700 text-lg;
+      @apply block font-medium text-stone-700;
+      font-size: max(1rem, min(4vw, 1.125rem));
+      line-height: max(1.5rem, min(4vw, 1.75rem));
     }
   }
-  &__arrow {
+  .arrow {
     @apply absolute right-0 w-0 h-5 fill-stone-700 duration-300;
   }
-  &__back {
+  .back {
     @apply flex items-center gap-3 duration-300 px-1 h-0 overflow-hidden;
     p {
-      @apply w-full gap-2 text-stone-500 text-base;
+      @apply w-full gap-2 text-stone-500 leading-snug;
+      font-size: max(0.938rem, min(4vw, 1rem));
     }
     a {
       @apply block w-fit text-stone-950 font-medium text-base underline;
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .accordion {
+    &.active .back {
+      @apply h-auto;
     }
   }
 }
