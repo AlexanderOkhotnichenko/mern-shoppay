@@ -41,7 +41,10 @@ export function GooglePay({ total }) {
     Swal.fire({
       title: 'Payment Authorised Success!',
       icon: 'success',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+      customClass: {
+        container: 'payments-success-swal2-container',
+      }
     });
     return { transactionState: "SUCCESS" };
   };
@@ -50,9 +53,12 @@ export function GooglePay({ total }) {
 
   const handlePaymentError = (paymentError) => {
     Swal.fire({
-      title: 'The payment is not authorised. Try again later!',
-      icon: 'error',
-      confirmButtonText: 'Ok'
+      title: "The payment is not authorised. Try again later!",
+      icon: "error",
+      confirmButtonText: "Ok",
+      customClass: {
+        container: 'payments-error-swal2-container',
+      }
     });
   }
 

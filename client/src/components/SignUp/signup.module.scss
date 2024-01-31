@@ -57,10 +57,14 @@
     @apply w-7 h-7;
   }
   .error_message {
-    @apply w-full p-4 mb-10 text-15 bg-error text-white rounded text-center;
+    @apply w-full p-4 mb-10 bg-error text-white rounded text-center;
+    font-size: max(0.875rem, min(4vw, 1rem));
+    line-height: max(1.25rem, min(4vw, 1.75rem));
   }
   .create_message {
-    @apply w-full p-4 mb-10 text-15 bg-emerald-500 text-white rounded text-center;
+    @apply w-full p-4 mb-10 bg-emerald-500 text-white rounded text-center;
+    font-size: max(0.875rem, min(4vw, 1rem));
+    line-height: max(1.25rem, min(4vw, 1.75rem));
   }
 }
 
@@ -70,12 +74,12 @@
       @apply py-10 px-3;
     }
     .form {
-      @apply p-5;
+      @apply py-5 px-4;
       .title {
         @apply mb-7;
       }
       .label {
-        @apply py-4 px-3 mb-2;
+        @apply py-4 mb-2;
         &__label {
           @apply gap-3;
         }
@@ -93,7 +97,7 @@
     }
     .error_message,
     .create_message {
-      @apply text-sm px-2;
+      @apply text-sm px-2 mb-3;
     }
   }
 }

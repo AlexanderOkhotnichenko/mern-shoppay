@@ -18,11 +18,11 @@ function App() {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState([0, 60]);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
   const [listGoods, setListGoods] = useState([]);
   // CARD GOOD
   const [productData, setProductData] = useState([]);
-  const [selectedOptionSize, setSelectedOptionSize] = useState('');
+  const [selectedOptionSize, setSelectedOptionSize] = useState("");
   // NAVIGATION PAGINATIONS PAGE
   const [paginationPage, setPaginationPage] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

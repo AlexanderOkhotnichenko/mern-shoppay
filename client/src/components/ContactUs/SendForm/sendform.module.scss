@@ -60,13 +60,15 @@
     }
     .message {
       @apply w-full resize-none text-light-gray-custom;
-      font-size: max(1rem, min(5vw, 1.125rem));
-      line-height: max(1.5rem, min(5vw, 1.75rem));
+      font-size: max(1rem, min(4vw, 1.125rem));
+      line-height: max(1.5rem, min(4vw, 1.75rem));
       background: none;
     }
   }
   .error_message {
     @apply block text-error w-full font-medium;
+    font-size: max(0.875rem, min(4vw, 1rem));
+    line-height: max(1.25rem, min(4vw, 1.75rem));
   }
 }
 
@@ -103,7 +105,7 @@ button[type="submit"] {
     @apply px-3;
   }
   .form {
-    @apply p-5;
+    @apply py-5 px-4;
     &__title {
       @apply mb-7;
     }

@@ -24,7 +24,10 @@ export function PayPal({ total }) {
     Swal.fire({
       title: 'Payment Authorised Success!',
       icon: 'success',
-      confirmButtonText: 'Ok'
+      confirmButtonText: 'Ok',
+      customClass: {
+        container: 'payments-success-swal2-container',
+      }
     });
 
     const messageApprove = (orderId) => {
@@ -50,6 +53,9 @@ export function PayPal({ total }) {
       title: "The payment is not authorised. Try again later!",
       icon: "error",
       confirmButtonText: "Ok",
+      customClass: {
+        container: 'payments-error-swal2-container',
+      }
     });
 
     setErrorOrder(error);
@@ -59,6 +65,7 @@ export function PayPal({ total }) {
     <PayPalScriptProvider options={options}>
       <PayPalButtons
         style={styles}
+        className="paypal-button"
         createOrder={handleCreateOrder}
         onApprove={handleApprove}
         onError={handleError}

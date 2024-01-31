@@ -1,5 +1,5 @@
 .cart {
-  @apply relative flex items-center gap-5 border-b pb-3 mb-3;
+  @apply relative flex items-center gap-5 border-b pb-3 mb-3 pr-7;
   .left {
     img {
       @apply block max-w-8.75 rounded;
@@ -7,7 +7,10 @@
   }
   .right {
     .title {
-      @apply tracking-wide text-lg font-semibold text-stone-700 pb-1.5 w-72 whitespace-nowrap overflow-hidden text-ellipsis;
+      @apply tracking-wide font-semibold text-stone-700 pb-1.5 w-full;
+      font-size: max(1rem, min(4vw, 1.125rem));
+      line-height: max(1.5rem, min(4vw, 1.75rem));
+      max-width: 18rem;
     }
     .description {
       @apply mb-1.5;
@@ -15,10 +18,14 @@
       .size,
       .color {
         @apply block tracking-wide text-stone-700;
+        font-size: max(0.938rem, min(4vw, 1rem));
+        line-height: max(1.5rem, min(4vw, 1.75rem));
       }
     }
     .price {
       @apply text-stone-700 tracking-wide font-semibold;
+      font-size: max(0.938rem, min(4vw, 1rem));
+      line-height: max(1.5rem, min(4vw, 1.75rem));
     }
   }
   .delete {
@@ -26,5 +33,29 @@
     &:hover {
       @apply fill-red-500;
     }
+  }
+}
+
+@media screen and (max-width: 771px) {
+  .cart {
+    @apply mb-0 gap-3.5 pr-6;
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .cart {
+    @apply items-start;
+    .left img {
+      max-width: 110px;
+    }
+    .delete {
+      @apply -right-2;
+    }
+  }
+}
+
+@media screen and (max-width: 421px) {
+  .cart {
+    @apply pr-4;
   }
 }

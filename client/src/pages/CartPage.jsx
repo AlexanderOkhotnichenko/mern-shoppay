@@ -5,18 +5,7 @@ import { Cart } from "../components/Cart";
 import { Total } from "../components/Total";
 import { Payments } from "../components/Payments";
 import { resetPagePosition } from "../resetPagePosition";
-
-const grid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(420px, 1fr))",
-  gap: "2.5rem",
-};
-
-const section = {
-  maxWidth: "87.625rem",
-  padding: "2.5rem 3rem",
-  margin: "0 auto",
-}
+import styles from "../App.module.scss";
 
 export function CartPage() {
   const [noResult, setNoResult] = useState(false);
@@ -26,6 +15,7 @@ export function CartPage() {
   const handleOrderButton = () => setOrderButton(true);
 
   resetPagePosition(0, 0);
+
   const total = () => {
     let total = 0;
     products.forEach((item) => total += item.selectedCount * item?.price?.new);
@@ -38,8 +28,8 @@ export function CartPage() {
   }, [products]);
 
   return (
-    <section style={section}>
-      <div style={grid}>
+    <section className={styles.cart_page}>
+      <div className={styles.cart_page__content}>
         {products?.map((cart) => (
           <Cart key={cart._id} {...cart} />
         ))}

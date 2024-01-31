@@ -13,7 +13,7 @@ export function Cart({ _id, img, title, category, size, color, price, selectedCo
         <img src={img?.src?.front} alt={img?.alt?.front} />
       </div>
       <div className={styles.right}>
-        <h4 className={styles.title}>{title}</h4>
+        <h4 className={styles.title} title={title}>{title}</h4>
         <div className={styles.description}>
           <span className={styles.category}>Category: {category}</span>
           <span className={styles.size}>Size: {size}</span>

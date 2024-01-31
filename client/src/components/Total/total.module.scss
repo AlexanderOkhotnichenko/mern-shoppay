@@ -3,16 +3,31 @@
   .row {
     @apply flex items-center justify-between gap-10 mb-5;
     .title {
-      @apply font-semibold text-xl tracking-wide text-stone-700;
+      @apply font-semibold tracking-wide text-stone-700;
+      font-size: max(1.063rem, min(4vw, 1.25rem));
+      line-height: max(1.5rem, min(4vw, 1.75rem));
     }
     .price {
-      @apply font-semibold text-xl tracking-wide text-stone-700;
+      @apply font-semibold  tracking-wide text-stone-700;
+      font-size: max(1.063rem, min(4vw, 1.25rem));
+      line-height: max(1.5rem, min(4vw, 1.75rem));
     }
   }
   .checkout {
     @apply block bg-purple-custom py-2.5 px-5 text-white uppercase rounded text-center font-bold tracking-wide duration-150;
+    font-size: max(0.875rem, min(4vw, 1rem));
+      line-height: max(1.25rem, min(4vw, 1.5rem));
     &:hover {
       @apply bg-hover-purple-custom;
+    }
+  }
+}
+
+@media screen and (max-width: 471px) {
+  .total {
+    @apply mt-5;
+    .row {
+      @apply mb-3.5;
     }
   }
 }

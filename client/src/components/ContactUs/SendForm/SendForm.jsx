@@ -7,15 +7,39 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { MdMail } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { MdOutlinePhoneIphone } from "react-icons/md";
+import { useSizeWindow } from "../../../hooks/useSizeWindow";
 import { schema } from "../../../utils/schema";
 import { SendEmail } from "../../../API/API";
-import "react-phone-input-2/lib/style.css";
 import styles from "./sendform.module.scss";
+import "react-phone-input-2/lib/style.css";
 import "../../../sweetalert2.scss";
+
+const SwalOptionsToast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3500,
+  customClass: {
+    container: 'send-mail-swal2-container',
+  },
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  },
+});
+
+const SwalOptionsModal = Swal.mixin({
+  customClass: {
+    container: 'send-mail-swal2-container',
+  },
+});
 
 export function SendForm() {
   const [loading, setLoading] = useState(false);
   const [send, setSend] = useState("");
+  const [width] = useSizeWindow();
+  const breakpoint = 425;
 
   const {
     register,
@@ -34,21 +58,6 @@ export function SendForm() {
     },
   });
 
-  const SwalOptions = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    customClass: {
-      container: 'swal2-container-custom',
-    },
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.onmouseenter = Swal.stopTimer;
-      toast.onmouseleave = Swal.resumeTimer;
-    },
-  });
-
   const onSubmit = (data) => {
     SendEmail(data, { setSend, setLoading });
     reset();
@@ -56,12 +65,21 @@ export function SendForm() {
 
   useEffect(() => {
     if (send) {
-      SwalOptions.fire({
-        title: `${send?.message}!`,
-        icon: "success",
-      });
+      if (width <= breakpoint) {
+        SwalOptionsModal.fire({
+          title: `${send?.message}!`,
+          icon: "success",
+        });
+      } else {
+        SwalOptionsToast.fire({
+          title: `${send?.message}!`,
+          icon: "success",
+        });
+      }
+
+      setSend('');
     }
-  }, [send]);
+  }, [send, width]);
 
   return (
     <section className={styles.send_form}>

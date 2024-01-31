@@ -1,10 +1,11 @@
 .no_result {
-  @apply flex justify-center items-center flex-col col-span-full;
-  height: 50vh;
+  @apply flex justify-center items-center flex-col col-span-full h-screen-1/2;
   &__hero {
     @apply h-1/2 object-contain block;
   }
   &__title {
-    @apply text-2xl font-medium tracking-wide text-stone-700;
+    @apply font-medium tracking-wide text-stone-700;
+    font-size: max(1.125rem, min(4vw, 1.5rem));
+    line-height: max(1.75rem, min(4vw, 2rem));
   }
 }

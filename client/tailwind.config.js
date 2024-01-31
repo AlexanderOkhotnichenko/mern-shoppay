@@ -10,6 +10,7 @@ export default {
       xl: { max: '1400px' },
       lg: { max: '1200px' },
       md: { max: '990px' },
+      md: { max: '990px' },
       sm: { max: '767px' },
       xs: { max: '470px' },
       ls: { max: '370px' },
@@ -40,6 +41,7 @@ export default {
       backgroundColor: {
         body: 'rgb(242, 242, 242)',
         error: 'rgb(243, 68, 68)',
+        'hover-error': 'rgb(243, 80, 80)',
         'purple-custom': 'rgb(89, 47, 244)',
         'hover-purple-custom': 'rgb(80, 43, 212)',
         'white-custom': 'rgb(242, 243, 243)',
@@ -64,6 +66,7 @@ export default {
         'screen-40': 'calc(100vh - 2.5rem)',
         '4/5vh': '80vh',
         '3.875': '3.875rem',
+        'screen-1/2': '50vh',
       },
       maxWidth: {
         20: '20rem',
@@ -71,7 +74,8 @@ export default {
         40: '40rem',
         87.625: '87.625rem',
         10: '10rem',
-        8.75: '8.75rem'
+        8.75: '8.75rem',
+        '1/2': '50%',
       },
       minWidth: {
         20: '20rem',
@@ -89,6 +93,9 @@ export default {
         9: '9rem',
         6: '1.5rem',
         1.25: '1.25rem',
+      },
+      gridTemplateColumns: {
+        'minmax(22.5/1fr)': 'repeat(auto-fit, minmax(22.5rem, 1fr))'
       },
       gridColumn: {
         '2/3': '2 / 3',
@@ -123,6 +130,8 @@ export default {
       },
       borderColor: {
         'blue-opacity': 'rgba(89, 47, 244, 0.3)',
+        'emerald-opacity': 'rgba(16, 185, 129, 0.3)',
+        'error-opacity': 'rgba(243, 68, 68, 0.3)',
       },
       fontFamily: {},
       keyframes: {
