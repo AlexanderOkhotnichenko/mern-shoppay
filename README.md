@@ -11,6 +11,12 @@ Make sure to create a .env file and replace existing environment variables with 
 3. Create and settings `.env` file with environment variables.
 4. Run the application from the client folder with the `npm run dev` command and the server with the `npm start` command
 
+## **Steck:**
+`React`, `Express`, `MongoDB`, `Node`, `Tailwind`, `SCSS`, `Redux`, `Vite`
+## **I also used:**
+`Swiper`, `Mongoose`, `Express validate` `Nodemailer`, `Axios`, `react-router-dom`, `react-hook-form`, `Google-pay`, `PayPal`, `sweetalert2`, `yup`, `react-toastify`
+ 
+
 ## **Functionality**
 
 * Authentication / registration
