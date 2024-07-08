@@ -19,12 +19,12 @@ export function Featureds() {
   const nextRef = useRef(null);
   const paginationRef = useRef(null);
 
-  const { data, loading } = useFetch("https://mern-shoppay.onrender.com/api/featureds");
+  const { data, loading } = useFetch("/api/featureds");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responsive = await axios.get('https://mern-shoppay.onrender.com/api/products');
+        const responsive = await axios.get('/api/products');
         setProducts(responsive.data);
       } catch (error) {
         setError(true);
